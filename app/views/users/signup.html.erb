@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head style="border-style: none!important;">
+	<title>Phoenix Login </title>
+	<link 
+		rel="stylesheet" 
+		type="text/css" 
+		href="C:\Users\Bhakti\Sites\User_Auth\app\assets\stylesheets\login.scss">
+
+	<h1 class="header1">Welcome to Phoenix Portal</h1>
+</head>
+
+<body class="background1">
+	<div class="card card_div">
+		<article class="card-body form-container">
+			<h4 class="card-title text-center mb-4 mt-1">Sign Up For an Account</h4>
+			<hr>
+
+			<!-- submits form data to /sessions using post method-->
+			<form action="/users" method="POST">
+
+				<!--Authenticity token for the user-->
+				<input 
+					type="hidden" 
+					name="authenticity_token" 
+					value="<%form_authenticity_token%>">
+
+				<!--Company ID field-->
+				<div class="form-group">
+					<div class="input-group">
+						<input class="input_fields form-control" 
+							   name="user[companyID]"  
+							   placeholder="Company ID" 
+							   type="text">
+					</div> <!-- input-group.// -->
+				</div> <!-- form-group// -->
+
+				<!--Username field-->
+				<div class="form-group">
+					<div class="input-group">
+				    	<input class="input_fields form-control"  
+				    		   name="user[username]"  
+				    		   placeholder="Username" 
+				    		   type="text">
+					</div> <!-- style="z-index: 1"input-group.// -->
+				</div> <!-- form-group// -->
+
+				<!--Password field-->
+				<div class="form-group">
+					<div class="input-group">
+				    	<input class="input_fields form-control"  
+				    			name="user[password]"  
+				    			placeholder="Password" 
+				    			type="password">
+					</div> <!-- input-group.// -->
+				</div> <!-- form-group// -->
+
+				<!--Sign Up-->
+				<div class="form-group">
+					<button type="submit" 
+							name="submit" 
+							class="btn btn-primary btn-block links"> 
+							Sign Up 
+					</button>
+
+				</div> <!-- form-group// -->
+				<p class="text-center" style="color:#9B9B9B";>
+					Already have an account?
+					<a href="/login" class="links"> 
+						Log In
+					</a>
+				</p>
+
+				<!--Displaying Errors if Any?-->
+				<div class="errors error text-center">
+					<% if flash[:register_errors]%>
+						<% flash[:register_errors].each do |error|%>
+							<p style="color: red"> <%= error%></p>
+						<%end%>
+					<%end%>
+				</div>
+			</form>
+		</article>
+	</div> <!-- card.// -->
+			
+			
+	<!-- Links for Terms of Use, Help and Privacy Policy -->
+	<div class="extra">
+		<p>
+			<a href="#" class="link"> Terms of Use </a>•
+			<a href="#" class="link"> Help </a>•
+			<a href="#" class="link"> Privacy Policy</a>
+		</p>
+	</div>
+
+
+<!-- Jquery and Bootstrap Links-->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</body>
+</html>

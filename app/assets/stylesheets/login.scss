@@ -1,0 +1,88 @@
+/*Login and Sign up components customization*/
+
+html{
+	overflow: hidden;
+}
+
+.background1{
+	background-image: 	 url('background.jpg');
+	width: 				 100%;
+	height: 			 65vh;
+	background-size:     cover;                     
+    background-repeat:   no-repeat;
+    background-position: center center;
+}
+
+.form-container{
+	width:		410px;
+	height: 	410px;
+  	background: #fff;
+	position: 	absolute;
+	top: 		5vh;
+	left: 		35%;
+	box-shadow: 0px 0px 10px 0px #000
+}
+
+.extra { 
+    text-align:		center; 
+    position: 		relative;
+    padding: 		33% 0%;
+    color: 			#9B9B9B;
+	font-size: 		12px;
+} 
+
+.link{
+	color: 		#9B9B9B;
+	font-size: 	12px;
+}
+
+.header1{
+    height: 		 130px;
+    width: 			 100%;
+    line-height:	 2;
+    color: 			 #FFFFFF;
+    text-align: 	 center;
+    text-decoration: none !important;
+   }
+
+@media only screen and (max-width: 678px)
+{
+	.bg{
+		background-size: 200%;
+	}
+}
+
+.error{
+	color: 		#FF0000;
+	font-size: 	14px;
+}
+
+
+
+.btn1{
+	font-size: 		40px;
+	padding: 		10px;
+	border-radius: 	10px;
+	margin: 		20px;
+}
+
+.card_div{
+	pointer-events: none;
+	border-style: 	none!important; 
+	margin-top: 	-5%;
+}
+
+.input_fields{
+	z-index: 		1;
+	pointer-events: all;
+}
+
+.links{
+	z-index:		1;
+	position:		relative;
+	pointer-events: all;
+}
+
+#container1{
+	text-align: center;
+}
