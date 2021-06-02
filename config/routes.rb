@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   post '/sessions' => 'sessions#create'
   get '/signup' => 'users#signup'
   post '/users' => 'users#create'
-  get '/welcome' => 'phoenix#welcome'
-  get '/log_out' => 'phoenix#log_out'
+  get '/welcome/:id' => 'sessions#welcome'
+  get '/logout' => 'sessions#destroy'
 end

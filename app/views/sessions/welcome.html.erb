@@ -5,26 +5,17 @@
 	<link rel="stylesheet" 
 		  type="text/css" 
 		  href="C:\Users\Bhakti\Sites\User_Auth\app\assets\stylesheets\login.scss">
-	<h1 class="text-center header1">Welcome to Phoenix</h1>
+	<h2 class="text-center header1">Welcome <%= @user.username.html_safe %></h2>
 </head>
 
 <body class="background1">
 	
 			<div id="container1">
 				
-				<div>
-					<button type="button" class="btn1 btn-dark" >学生</button>
-					<button type="button" class="btn1 btn-dark">企業</button>
-					<button type="button" class="btn1 btn-dark">Job</button>
-				</div>
-				
-				<div>
-					<button type="button" class="btn1 btn-dark">担当者</button>
-					<button type="button" class="btn1 btn-dark">売り上げ</button>
-				</div>
+			<%= link_to "Log out", logout_path, method: "get" %>
 			
 
-				</div> <!-- card.// -->
+			</div> <!-- card.// -->
 			
 			
 
