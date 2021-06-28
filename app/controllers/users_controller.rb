@@ -16,22 +16,14 @@ class UsersController < ApplicationController
 
 	#Creates a new user based on entered fields 
 	#Gets called after Sign Up button is clicked
-	def create
-		if user_params[:username].match(/(\%27)|(\')|(\-\-)|(\%23)|(#)/) or user_params[:password].match(/(\%27)|(\')|(\-\-)|(\%23)|(#)/)
-			flash[:register_errors] = ['SQL Injection detected'] 
-			redirect_to '/signup'
-		elsif user_params[:username].match(/((\%3C)|<)[^\n]+((\%3E)|>)/) or user_params[:password].match(/((\%3C)|<)[^\n]+((\%3E)|>)/)
-			flash[:register_errors] = ['Cross Site Scripting detected'] 
-			redirect_to '/signup'
+	def create	
+		user = User.create(user_params)
+		if user.save
+			redirect_to "/welcome/#{user.id}"
 		else
-			user = User.create(user_params)
-			if user.save
-				redirect_to "/welcome/#{user.id}"
-			else
-				flash[:register_errors] = user.errors.full_messages
-				redirect_to '/signup'
-			end
-		end
+			flash[:register_errors] = user.errors.full_messages
+			redirect_to '/signup'
+		end	
 	end
 
 	#Requires for Company ID, username and password to be filled

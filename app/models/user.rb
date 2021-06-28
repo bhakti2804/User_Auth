@@ -24,7 +24,6 @@ class User < ApplicationRecord
   #						          uniqueness: true
               
   validates :username, presence: true,
-              format: { with: username_format, message: 'invalid input'},
   					  uniqueness: true
   		   	
   validates :password, presence: true 
